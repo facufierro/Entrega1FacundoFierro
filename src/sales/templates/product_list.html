@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Lista de Productos</h1>
+    {% if productiList %}
+        {% for product in productList %}
+            <div class="product">
+                <a href="product_detail"></a><h2>{{ product.name }}</h2>
+                <p>{{ product.description }}</p>
+                <p>{{ product.price }}</p>
+                <p>{{ product.stock }}</p>
+                <p>{{ product.created_at }}</p>
+                <p>{{ product.updated_at }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No hay productos</p>
+    {% endif %}
+{% endblock content %}
