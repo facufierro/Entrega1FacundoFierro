@@ -3,7 +3,7 @@
     <div>
         <h1>Lista de Vendedores</h1>
         <form action="{% url 'seller_search' %}" method="GET">
-            <input name="q" type="text" placeholder="Buscar por ID">
+            <input name="q" type="number" placeholder="Buscar por ID">
         </form>
         <a href="{% url 'seller_create' %}">Cargar</a>
     </div>
@@ -11,8 +11,8 @@
         {% for seller in object_list %}
             <li>
                 <a href="{% url 'seller_detail' seller.id %}">{{ seller.name }}</a>
-                <a href="{% url 'seller_update' seller.id %}">X</a>
-                <a href="{% url 'seller_delete' seller.id %}">U</a>
+                <a href="{% url 'seller_update' seller.id %}">Actualizar</a>
+                <a href="{% url 'seller_delete' seller.id %}">Borrar</a>
             </li>
         {% endfor %}
     {% else %}

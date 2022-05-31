@@ -1,8 +1,1 @@
-{% extends 'base.html' %}
-{% block content %}
-    <form method="POST">
-        {% csrf_token %}
-        <p>¿Borrar {{ object.name }}?</p>
-        <input type="submit" value="Borrar">
-    </form>
-{% endblock content %}
+{% extends 'delete_form.html' %}
