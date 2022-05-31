@@ -1,8 +1,8 @@
 <p>Buscaste id de producto: {{ product_id }}</p>
-{% comment %} {% if product_list %}
+{% if product_list %}
     {% for product in product_list %}
         <li>
             <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
         </li>
     {% endfor %}
-{% endif %} {% endcomment %}
+{% endif %}

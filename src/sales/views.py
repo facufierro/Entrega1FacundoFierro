@@ -1,4 +1,6 @@
 
+from ast import NamedExpr
+from urllib import response
 from django.shortcuts import render
 from django.template import loader
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -13,9 +15,25 @@ def Index(request):
 
 
 # Product
-def ProductSearch(request):
 
-    return HttpResponse(f"{request.GET['product_id']}")
+# def productSearch(request):
+#     return render(request, "product/product_search.html")
+
+
+# def search(request):
+#     # return HttpResponse(f"Searching for {request.GET['product_id']}")
+#     if request.GET['product_id']:
+#         product_id = request.GET['product_id']
+#         product = Product.objects.filter(id__icontains=product_id)
+#         return render(request, "product/product_search_result.html", {"product_id": product_id})
+#     else:
+#         response = "Ingresar un número de producto"
+#     return HttpResponse(response)
+
+class SearchResultsView(ListView):
+    model = Product
+    template_name = 'product/product_search_result.html'
+    queryset = Product.objects.filter(id__icontains=1)
 
 
 class ProductList(ListView):
