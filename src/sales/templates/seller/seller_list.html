@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <h1>Lista de Vendedores</h1>
+        <a href="{% url 'seller_create' %}">Cargar un Vendedor</a>
+    </div>
+    {% if object_list %}
+        {% for seller in object_list %}
+            <li>
+                <a href="{% url 'seller_detail' seller.id %}">{{ seller.name }}</a>
+                <a href="{% url 'seller_update' seller.id %}">X</a>
+                <a href="{% url 'seller_delete' seller.id %}">U</a>
+            </li>
+        {% endfor %}
+    {% else %}
+        <p>No hay Vendedores</p>
+    {% endif %}
+    <p></p>
+{% endblock content %}

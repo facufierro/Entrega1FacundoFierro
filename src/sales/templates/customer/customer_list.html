@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <h1>Lista de Productos</h1>
+        <a href="{% url 'customer_create' %}">Cargar un Cliente</a>
+    </div>
+    {% if object_list %}
+        {% for customer in object_list %}
+            <li>
+                <a href="{% url 'customer_detail' customer.id %}">{{ customer.name }}</a>
+                <a href="{% url 'customer_update' customer.id %}">X</a>
+                <a href="{% url 'customer_delete' customer.id %}">U</a>
+            </li>
+        {% endfor %}
+    {% else %}
+        <p>No hay Clientes</p>
+    {% endif %}
+    <p></p>
+{% endblock content %}
