@@ -12,10 +12,17 @@ def Index(request):
     return render(request, 'index.html')
 
 
-# Product
-def ProductSearch(request):
+class HomePageView(TemplateView):
+    template_name = 'home.html'
 
-    return HttpResponse(f"{request.GET['product_id']}")
+# Product
+
+
+class SearchResultsView(ListView):
+    model = Product
+    template_name = 'product/product_search_result.html'
+    
+    queryset = Product.objects.filter(id__icontains=3)  # new
 
 
 class ProductList(ListView):

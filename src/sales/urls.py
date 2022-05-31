@@ -4,7 +4,8 @@ from sales import views
 urlpatterns = [
     path('', views.Index),
     # Product
-    path('product_search/', views.ProductSearch),
+    
+    path('search/', views.SearchResultsView.as_view(), name='product_search_result'),
     path('product_list/', views.ProductList.as_view(), name='product_list'),
     path('product_detail/<pk>', views.ProductDetail.as_view(), name='product_detail'),
     path('product_create/', views.ProductCreate.as_view(), name='product_create'),
