@@ -2,7 +2,10 @@
 {% block content %}
     <div>
         <h1>Lista de Vendedores</h1>
-        <a href="{% url 'seller_create' %}">Cargar un Vendedor</a>
+        <form action="{% url 'seller_search' %}" method="GET">
+            <input name="q" type="text" placeholder="Buscar por ID">
+        </form>
+        <a href="{% url 'seller_create' %}">Cargar</a>
     </div>
     {% if object_list %}
         {% for seller in object_list %}

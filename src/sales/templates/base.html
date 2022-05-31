@@ -10,11 +10,13 @@
         <div class="sidenav">
             <a href="/product_list">Productos</a>
             <a href="/customer_list">Clientes</a>
-            <a href="/seller_list">Vendedores</a>            
+            <a href="/seller_list">Vendedores</a>
         </div>
         {% block content %}
         {% endblock content %}
         <p></p>
-        <a href="/">Volver a Inicio</a>
+        {% comment %} <input type="button" value="Atrás" onclick="history.back()"> {% endcomment %}
+        <a href="#" onclick="history.go(-1)">Atrás</a>
+        <a href="/">Inicio</a>
     </body>
 </html>

@@ -2,18 +2,19 @@
 {% block content %}
     <div>
         <h2>Lista de Productos</h2>
-        <form action="{% url 'product_search_result' %}" method="GET">
-            <input name="q" type="text" placeholder="Buscar...">
+        <form action="{% url 'product_search' %}" method="GET">
+            <input name="q" type="text" placeholder="Buscar por ID">
         </form>
-        <a href="{% url 'product_create' %}">Crear un producto</a>
+        <p></p>
+        <a href="{% url 'product_create' %}">Cargar</a>
     </div>
     <p></p>
     {% if object_list %}
         {% for product in object_list %}
             <li>
                 <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
-                <a href="{% url 'product_update' product.id %}">U</a>
-                <a href="{% url 'product_delete' product.id %}">X</a>
+                <a href="{% url 'product_update' product.id %}">Actualizar</a>
+                <a href="{% url 'product_delete' product.id %}">Borrar</a>
             </li>
         {% endfor %}
     {% else %}

@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
     <div>
-        <h1>Lista de Productos</h1>
-        <a href="{% url 'customer_create' %}">Cargar un Cliente</a>
+        <h1>Lista de Clientes</h1>
+        <form action="{% url 'customer_search' %}" method="GET">
+            <input name="q" type="text" placeholder="Buscar por ID">
+        </form>
+        <a href="{% url 'customer_create' %}">Cargar</a>
     </div>
     {% if object_list %}
         {% for customer in object_list %}

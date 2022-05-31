@@ -18,11 +18,14 @@ class HomePageView(TemplateView):
 # Product
 
 
-class SearchResultsView(ListView):
+class ProductSearch(ListView):
     model = Product
-    template_name = 'product/product_search_result.html'
+    template_name = 'product/product_search.html'
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        return Product.objects.filter(id__icontains=query)
+
     
-    queryset = Product.objects.filter(id__icontains=3)  # new
 
 
 class ProductList(ListView):
@@ -56,6 +59,12 @@ class ProductDelete(DeleteView):
 
 # Customer
 
+class CustomerSearch(ListView):
+    model = Customer
+    template_name = 'customer/customer_search.html'
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        return Customer.objects.filter(id__icontains=query)
 
 class CustomerList(ListView):
     model = Customer
@@ -89,6 +98,12 @@ class CustomerDelete(DeleteView):
 
 # Seller
 
+class SellerSearch(ListView):
+    model = Seller
+    template_name = 'seller/seller_search.html'
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        return Seller.objects.filter(id__icontains=query)
 
 class SellerList(ListView):
     model = Seller
